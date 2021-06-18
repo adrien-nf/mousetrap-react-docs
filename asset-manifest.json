@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mousetrap-react-docs/static/css/main.7d70675c.chunk.css",
+    "main.js": "/mousetrap-react-docs/static/js/main.82795b14.chunk.js",
+    "main.js.map": "/mousetrap-react-docs/static/js/main.82795b14.chunk.js.map",
+    "runtime-main.js": "/mousetrap-react-docs/static/js/runtime-main.c040b8d3.js",
+    "runtime-main.js.map": "/mousetrap-react-docs/static/js/runtime-main.c040b8d3.js.map",
+    "static/js/2.80b60c6e.chunk.js": "/mousetrap-react-docs/static/js/2.80b60c6e.chunk.js",
+    "static/js/2.80b60c6e.chunk.js.map": "/mousetrap-react-docs/static/js/2.80b60c6e.chunk.js.map",
+    "static/js/3.2df7b114.chunk.js": "/mousetrap-react-docs/static/js/3.2df7b114.chunk.js",
+    "static/js/3.2df7b114.chunk.js.map": "/mousetrap-react-docs/static/js/3.2df7b114.chunk.js.map",
+    "index.html": "/mousetrap-react-docs/index.html",
+    "static/css/main.7d70675c.chunk.css.map": "/mousetrap-react-docs/static/css/main.7d70675c.chunk.css.map",
+    "static/js/2.80b60c6e.chunk.js.LICENSE.txt": "/mousetrap-react-docs/static/js/2.80b60c6e.chunk.js.LICENSE.txt",
+    "static/media/logo.e2190516.png": "/mousetrap-react-docs/static/media/logo.e2190516.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c040b8d3.js",
+    "static/js/2.80b60c6e.chunk.js",
+    "static/css/main.7d70675c.chunk.css",
+    "static/js/main.82795b14.chunk.js"
+  ]
+}
