@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+/*
+  Adrien N. F.
+  Palette:
+    #FAF3F3
+    #E1E5EA
+    #A7BBC7
+    #DA7F8F
+*/
+
+.style {
+  font-family: 'Arial';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.npm-install {
+  padding: 3px;
+  background-color: white;
+  border-radius: 4px;
+  font-family: 'Consolas';
+  border: 1px solid #bbbbbb;
+  width: auto;
+  margin: 0 auto;
+  margin-bottom: 0.25em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+code {
+  width: 100%;
+  display: table;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+code > span {
+  font-family: 'Consolas';
+}
+
+.code-block {
+  background-color: white;
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+}
+
+.code-line-transition {
+  transition: 0.5s;
+}
+
+.comment {
+  color: #b9b9b9;
+}
+
+body, .background {
+  background-color: #FAF3F3;
+}
+
+.highlighted {
+  background-color: #70c6ff;;
+}
+
+.background {
+  width: calc(100% - 4em);
+  overflow: hidden;
+  padding: 2em;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.code-line-number {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+  color:#b9b9b9;
+  padding-right: 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  font-family: 'Anonymous Pro';
+  font-size: 10em;
+}
+
+.link {
+  font-family: 'Anonymous Pro';
+}
+
+.top {
+  flex-grow: 1;
+}
+
+.center {
+  padding: 1em;
+  max-width: 700px;
+  min-width: 700px;
+}
+
+.calculator-background {
+  flex-grow:1;
+  height: 100%;
+}
+
+.calculator-screen {
+  width: 100%;
+  background-color: #DA7F8F;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.calculator-screen-content {
+  margin: 0px 10px 0px 10px;
+  max-width: 100%;
+  height: 40px;
+  background-color: #E1E5EA;
+  font-size: 40px;
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  font-family: 'Anonymous Pro';
+}
+
+.calculator-body {
+    flex-direction: row;
+    width:auto;
+    background-color: #DA7F8F;
+    padding-right: 10px;
+}
+
+.calculator-line {
+  height: 75px;
+}
+
+.calculator-button {
+  outline: 0;
+  position: relative;
+  left: 5px;
+  top: 5px;
+  border: 0;
+  color: #495069;
+  background-color: 4px;
+  width: 60px;
+  height: 50px;
+  float: left;
+  margin: 5px;
+  font-size: 20px;
+  box-shadow: 0 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-family: 'Anonymous Pro';
+}
+
+.calculator-button:active {
+  box-shadow: 0 2px rgba(0,0,0,0.2);
+  top: 9px;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
