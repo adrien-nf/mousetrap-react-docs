@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Mousetrap-React
+Mousetrap-React is a [Mousetrap](https://github.com/ccampbell/mousetrap) wrapper for [ReactJS](https://github.com/facebook/react).
+## Installation
+Mousetrap-React is available as an [npm package](https://www.npmjs.com/package/mousetrap-react).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```sh
+// With npm
+npm install mousetrap-react
+```
 
-## Available Scripts
+## Usage
+Check the [official Mousetrap documentation](https://craig.is/killing/mice) for a complete list of the keys you can use.
+### Basic usage
+```jsx
+import useMousetrap from "mousetrap-react";
 
-In the project directory, you can run:
+function App() {
+    // Single keys
+    useMousetrap("4", () => { console.log("4") });
+    useMousetrap("esc", () => { console.log("Escape") });
 
-### `npm start`
+    // Combinations
+    useMousetrap("command+shift+k", () => { console.log("COMMAND + SHIFT + K") });
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    // Map multiple combinations to the same callback
+    useMousetrap(['command+k', 'ctrl+k'], () => { console.log("COMMAND/CTRL + K") });
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    // Gmail style sequences
+    useMousetrap("g i", () => { console.log("Go to inbox") });
+    useMousetrap("* a", () => { console.log("Select all") });
 
-### `npm test`
+    // Konami code
+    useMousetrap("up up down down left right left right b a enter", () => { console.log("Konami code") });
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    return (
+        <p>Your render here</p>
+    )
+}
 
-### `npm run build`
+export default App;
+```
+### Prevent default
+If you wish to prevent the default action, simply return false in your callback.
+```jsx
+useMousetrap("ctrl+s", () => {
+    console.log("Triggering callback without saving the page")
+    // Add return false here
+    return false;
+});
+```
+### Catching event
+You may catch the event aswell.
+```jsx
+useMousetrap("ctrl+z", (e: Mousetrap.ExtendedKeyboardEvent, combo: string) => {
+    console.log("Event object:", e);
+    e.preventDefault();
+    console.log(`You've executed the ${combo} combo.`)
+});
+```
+### Text fields
+By default all keyboard events will not fire if you are inside of a ``textarea``, ``input``, or ``select`` to prevent undesirable things from happening.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you want them to fire you can add the class ``mousetrap`` to the element.
+```html
+<textarea className="mousetrap"></textarea>
+```
+### Event type
+There is a third argument you can use to specify the type of event to listen for. It can be keypress, keydown or keyup.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It is recommended that you leave this argument out if you are unsure. Mousetrap will look at the keys you are binding and determine whether it should default to keypress or keydown.
+```jsx
+Mousetrap.bind('esc', function() { console.log('Escape'); }, 'keyup');
+```
+## Definitions
+### useMousetrap
+```jsx
+const useMousetrap = (
+    keys: string | string[],
+    callback: (
+        e: Mousetrap.ExtendedKeyboardEvent,
+        combo: string
+        ) => any,
+    action?: "keypress" | "keydown" | "keyup" | undefined
+) => void;
+```
