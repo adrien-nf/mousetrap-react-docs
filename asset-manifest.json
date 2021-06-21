@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mousetrap-react-docs/static/css/main.7d70675c.chunk.css",
-    "main.js": "/mousetrap-react-docs/static/js/main.82795b14.chunk.js",
-    "main.js.map": "/mousetrap-react-docs/static/js/main.82795b14.chunk.js.map",
+    "main.js": "/mousetrap-react-docs/static/js/main.31a344d3.chunk.js",
+    "main.js.map": "/mousetrap-react-docs/static/js/main.31a344d3.chunk.js.map",
     "runtime-main.js": "/mousetrap-react-docs/static/js/runtime-main.c040b8d3.js",
     "runtime-main.js.map": "/mousetrap-react-docs/static/js/runtime-main.c040b8d3.js.map",
     "static/js/2.80b60c6e.chunk.js": "/mousetrap-react-docs/static/js/2.80b60c6e.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.c040b8d3.js",
     "static/js/2.80b60c6e.chunk.js",
     "static/css/main.7d70675c.chunk.css",
-    "static/js/main.82795b14.chunk.js"
+    "static/js/main.31a344d3.chunk.js"
   ]
 }
