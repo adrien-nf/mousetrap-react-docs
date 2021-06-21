@@ -117,6 +117,102 @@ const lines = [
   },
 ]
 
+const preventDefaultLines = [
+  {
+    classes: "",
+    text: `useMousetrap("ctrl+s", () => {`
+  },
+  {
+    classes: "",
+    text: `    console.log("Triggering callback without saving the page")`
+  },
+  {
+    classes: "comment",
+    text: `    // Add return false here`
+  },
+  {
+    classes: "",
+    text: `    return false;`
+  },
+  {
+    classes: "",
+    text: `});`
+  },
+]
+
+const catchingEvent = [
+  {
+    classes: "",
+    text: `useMousetrap("ctrl+z", (e: Mousetrap.ExtendedKeyboardEvent, combo: string) => {`
+  },
+  {
+    classes: "",
+    text: `    console.log("Event object:", e);`
+  },
+  {
+    classes: "",
+    text: `    e.preventDefault();`
+  },
+  {
+    classes: "",
+    // eslint-disable-next-line no-template-curly-in-string
+    text: "    console.log(`You've executed the ${combo} combo.`)"
+  },
+  {
+    classes: "",
+    text: `});`
+  },
+]
+
+const textFields = [
+  {
+    classes: "",
+    text: `<textarea className="mousetrap"></textarea>`
+  },
+]
+
+const eventType = [
+  {
+    classes: "",
+    text: `Mousetrap.bind('esc', function() { console.log('Escape'); }, 'keyup');`
+  },
+]
+
+const useMousetrapCode = [
+  {
+    classes: "",
+    text: `const useMousetrap = (`
+  },
+  {
+    classes: "",
+    text: `    keys: string | string[],`
+  },
+  {
+    classes: "",
+    text: `    callback: (`
+  },
+  {
+    classes: "",
+    text: `        e: Mousetrap.ExtendedKeyboardEvent,`
+  },
+  {
+    classes: "",
+    text: `        combo: string`
+  },
+  {
+    classes: "",
+    text: `        ) => any,`
+  },
+  {
+    classes: "",
+    text: `    action?: "keypress" | "keydown" | "keyup" | undefined`
+  },
+  {
+    classes: "",
+    text: `) => void;`
+  },
+]
+
 function App() {
 
   const [highlighted, setHighlighted] = useState([]);
@@ -132,7 +228,6 @@ function App() {
   useMousetrap(['command+k', 'ctrl+k'], () => {
     highlight([15, 16, 17, 18]);
     return false;
-
   });
 
   useMousetrap('g i', () => { highlight([21]) });
@@ -140,6 +235,16 @@ function App() {
 
   useMousetrap('up up down down left right left right b a enter', () => {
     highlight([25, 26, 27]);
+  });
+
+  useMousetrap('ctrl+s', () => {
+    console.log("Triggering callback without saving the page")
+    return false;
+  });
+
+  useMousetrap('esc', () => {
+    console.log("Escape")
+    return false;
   });
 
   const highlight = (vals) => {
@@ -175,7 +280,72 @@ function App() {
         <h1>Usage</h1>
         <p>Check the official <a href="https://craig.is/killing/mice">Mousetrap documentation</a> for a complete list of the keys you can use.</p>
         <h2>Basic usage</h2>
-        <div class="tip" markdown="1">Have **fun!**</div>
+        <p>Check the block of code at the very top of this page and try the commands!</p>
+        <h2>Prevent default</h2>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            preventDefaultLines.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
+        <h2>Catching event</h2>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            catchingEvent.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
+        <h2>Prevent default</h2>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            preventDefaultLines.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
+        <h2>Text fields</h2>
+        <p>By default all keyboard events will not fire if you are inside of a textarea, input, or select to prevent undesirable things from happening.</p>
+        <p>If you want them to fire you can add the class mousetrap to the element.</p>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            textFields.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
+        <h2>Event type</h2>
+        <p>There is a third argument you can use to specify the type of event to listen for. It can be keypress, keydown or keyup.</p>
+        <p>It is recommended that you leave this argument out if you are unsure. Mousetrap will look at the keys you are binding and determine whether it should default to keypress or keydown.</p>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            eventType.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
+        <h1>Definitions</h1>
+        <h2>useMousetrap</h2>
+        <pre data-language="javascript" data-trimmed="true" className="code-block">
+          {
+            useMousetrapCode.map((e, i) => (
+              <code key={i}>
+                <span className="code-line-number">{(i + 1).toString().padStart(2, ' ')}.</span><span className={e.classes + " code-line-transition "}>{e.text}</span>
+              </code>
+            ))
+          }
+        </pre>
       </div>
       <div className="bottom">
         <span className="link">© {(new Date()).getFullYear()} Adrien N. F.</span>&nbsp;

@@ -7,8 +7,23 @@
     #DA7F8F
 */
 
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Verdana' !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+
+h1 {
+  font-size: 28px !important;
+  font-weight: bold !important;
+}
+
+h2 {
+  font-size: 22px !important;
+}
+
 .style {
-  font-family: 'Arial';
+  font-family: 'Verdana';
 }
 
 .npm-install {
@@ -78,12 +93,12 @@ body, .background {
 }
 
 .title {
-  font-family: 'Anonymous Pro';
+  font-family: 'Verdana';
   font-size: 10em;
 }
 
 .link {
-  font-family: 'Anonymous Pro';
+  font-family: 'Verdana';
 }
 
 .top {
@@ -92,8 +107,8 @@ body, .background {
 
 .center {
   padding: 1em;
-  max-width: 700px;
-  min-width: 700px;
+  max-width: 720px;
+  min-width: 720px;
 }
 
 .calculator-background {
